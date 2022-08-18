@@ -55,7 +55,7 @@ h1 {
 }
 
 .container {
-  width: 80rem;
+  max-width: 80rem;
   margin: auto;
 }
 

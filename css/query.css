@@ -21,7 +21,7 @@
 /*************************************/
 @media (max-width: 50em) {
   .container {
-    width: 60rem;
+    max-width: 60rem;
   }
 
   .search-input {
@@ -74,6 +74,10 @@
 /* BELOW 500px SECTION */
 /*************************************/
 @media (max-width: 25em) {
+  .container {
+    width: 90%;
+  }
+
   .user-main-details {
     height: 40%;
   }
