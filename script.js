@@ -107,7 +107,7 @@ const getUserDetails = function (gitUser) {
         <p>${
           gitUser.twitter_username === null
             ? "Not available"
-            : `<a class="git-link" href="https://twitter.com/${gitUser.twitter_username}">${gitUser.twitter_username}</a>`
+            : `<a class="twitter-link" href="https://twitter.com/${gitUser.twitter_username}">${gitUser.twitter_username}</a>`
         }</p>
       </div>
 

@@ -6,14 +6,20 @@
       FONT SIZE SYSTEM (px)
       10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
       */
+
 /*************************************/
-/* TABLET SECTION */
+/* BELOW 1200px SECTION */
 /*************************************/
-@media (max-width: 67em) {
+@media (max-width: 75em) {
   html {
     font-size: 50%;
   }
+}
 
+/*************************************/
+/* TABLET SECTION */
+/*************************************/
+@media (max-width: 50em) {
   .container {
     width: 60rem;
   }
@@ -31,9 +37,11 @@
 
   .details-container {
     position: relative;
+    width: 100%;
   }
 
   .user-main-details {
+    height: 60%;
     flex-direction: column;
     position: absolute;
     align-content: space-between;
@@ -41,4 +49,56 @@
     top: -12rem;
     left: 16rem;
   }
-} ;
+
+  .git-link {
+    position: relative;
+    left: 16.1rem;
+    top: -7.5rem;
+  }
+
+  .bio {
+    margin-top: 0;
+  }
+}
+
+/*************************************/
+/* BELOW 500px SECTION */
+/*************************************/
+@media (max-width: 32em) {
+  html {
+    font-size: 37.5%;
+  }
+}
+
+/*************************************/
+/* BELOW 500px SECTION */
+/*************************************/
+@media (max-width: 25em) {
+  .user-main-details {
+    height: 40%;
+  }
+
+  .social-icons {
+    grid-template-columns: 1fr;
+    row-gap: 2.4rem;
+  }
+
+  .social-icon p {
+    align-self: center;
+  }
+
+  .social-icon {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+  }
+
+  .account-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .result-container {
+    height: 62.8rem;
+  }
+}
