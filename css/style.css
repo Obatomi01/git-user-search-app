@@ -25,7 +25,7 @@ body {
   overflow-x: hidden;
 }
 
-/* body,
+body,
 .account-details,
 .search-container,
 .result-container,
@@ -40,7 +40,7 @@ header h1,
 .social-icon p,
 .social-icon img {
   transition: all 3s ease-in;
-} */
+}
 
 html {
   font-size: 62.5%;
