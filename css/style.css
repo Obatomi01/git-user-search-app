@@ -1,0 +1,312 @@
+/* 
+
+      SPACING SYSTEM (px)
+      2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+      
+      FONT SIZE SYSTEM (px)
+      10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+      */
+/*************************************/
+/* GENERAL COMPONENTS SECTION */
+/*************************************/
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background-color: #f6f8ff;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* body,
+.account-details,
+.search-container,
+.result-container,
+.search-input,
+header h1,
+.search-input,
+.user-main-details h1,
+.user-main-details p,
+.bio,
+.account-title,
+.number,
+.social-icon p,
+.social-icon img {
+  transition: all 3s ease-in;
+} */
+
+html {
+  font-size: 62.5%;
+
+  overflow-x: hidden;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.6rem;
+  color: #2b3442;
+}
+
+.container {
+  width: 80rem;
+  margin: auto;
+}
+
+.hidden {
+  visibility: hidden;
+  position: absolute;
+}
+
+.btn {
+  background-color: transparent;
+  border: 0px transparent;
+  color: #697c9a;
+
+  padding-top: 0.4rem;
+}
+
+.search-container,
+.result-container {
+  background-color: #fefefe;
+  border-radius: 10px;
+
+  box-shadow: 0px 10px 10px 10px rgba(75, 106, 155, 0.1);
+
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+
+.search-container:hover,
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.5;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*************************************/
+/* HEADER SECTION */
+/*************************************/
+
+.header-container {
+  padding-top: 4.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin-bottom: 4.4rem;
+}
+
+.change-mode-container {
+  padding-top: 0.9rem;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+/*************************************/
+/* SEARCH SECTION */
+/*************************************/
+
+.error-message {
+  font-size: 1.3rem;
+  color: red;
+}
+
+.error-container {
+  align-self: center;
+}
+
+.search-container {
+  padding: 1rem;
+  margin-bottom: 2.4rem;
+}
+
+.search-icon {
+  padding-left: 2.4rem;
+}
+
+input {
+  border: 0;
+  width: 40rem;
+  font-size: 1.6rem;
+}
+
+::placeholder {
+  font-style: italic;
+  color: #697c9a;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.search-items {
+  display: flex;
+  gap: 2.4rem;
+}
+
+.search-btn {
+  background-color: #0079ff;
+  color: #fefefe;
+  padding: 1.6rem 2.4rem;
+  border-radius: 10px;
+  /* margin-left: 2.4rem; */
+}
+
+/*************************************/
+/* RESULTS SECTION */
+/*************************************/
+.spinner {
+  margin: auto;
+  color: #0079ff;
+}
+
+.result-container {
+  padding: 4.8rem;
+
+  display: flex;
+  gap: 2.4rem;
+  height: 40.24rem;
+}
+
+.image-container {
+  align-self: flex-start;
+  width: 20%;
+}
+
+.details-container {
+  width: 80%;
+
+  align-self: flex-start;
+}
+
+.user-image {
+  height: 12rem;
+  border-radius: 50%;
+}
+
+.user-name {
+  margin-bottom: 0.4rem;
+}
+
+.git-link {
+  color: #0079ff;
+  font-size: 1.6rem;
+}
+
+.date,
+.bio,
+.account-title,
+.social-icon p {
+  font-size: 1.3rem;
+}
+
+.account-title,
+.date,
+.social-icon p {
+  color: #4b6a9b;
+}
+
+.social-icon img {
+  color: #2b3442;
+  filter: invert(0%) sepia(6%) saturate(13%) hue-rotate(184deg) brightness(92%)
+    contrast(100%);
+}
+
+.user-main-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-main-details p {
+  margin: auto 0;
+}
+
+.bio {
+  margin: 3.2rem 0;
+}
+
+.account-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 10px;
+
+  background-color: #f6f8ff;
+  padding: 1.2rem 2.4rem;
+}
+
+.number {
+  font-size: 2.6rem;
+}
+
+.social-icons {
+  margin-top: 2.4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-content: center;
+  row-gap: 1.2rem;
+}
+
+.social-icon {
+  display: flex;
+  gap: 2.4rem;
+}
+
+/*************************************/
+/* DARK MODE SECTION */
+/*************************************/
+
+body.dark-mode,
+.account-details.dark-mode {
+  background-color: #141d2f;
+}
+
+.search-container.dark-mode,
+.result-container.dark-mode,
+.search-input.dark-mode {
+  background-color: #1e2a47;
+}
+
+header h1.dark-mode,
+.change,
+.search-input.dark-mode,
+.user-main-details.dark-mode,
+.bio.dark-mode,
+.account-title.dark-mode,
+.number.dark-mode,
+.social-icon p.dark-mode,
+.user-name.dark-mode,
+.date.dark-mode {
+  color: #fff;
+}
+
+.social-icon img.dark-mode {
+  filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(232deg)
+    brightness(102%) contrast(101%);
+}

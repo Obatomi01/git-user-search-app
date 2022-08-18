@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICONS FONT AWESOME -->
+    <script
+      defer
+      src="https://kit.fontawesome.com/dadaf9d8d6.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- STYLES  -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/query.css" />
+
+    <!-- SCRIPT -->
+    <script defer src="script.js"></script>
+    <title>GitHub user search app</title>
+  </head>
+  <body>
+    <!-- HEADER SECTION -->
+    <header class="container header-container">
+      <h1>devfinder</h1>
+      <div>
+        <div class="change-mode-container light-mode-btn-container">
+          <p>Dark</p>
+          <button class="btn dark-mode-btn mode-btn">
+            <img src="assets/icon-moon.svg" alt="" />
+          </button>
+        </div>
+
+        <div class="change-mode-container hidden dark-mode-btn-container">
+          <p class="change">Light</p>
+          <button class="btn light-mode-btn mode-btn">
+            <img src="assets/icon-sun.svg" alt="" />
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <main>
+      <section class="container">
+        <form class="search-container">
+          <div class="search-items">
+            <img class="search-icon" src="assets/icon-search.svg" alt="" />
+            <input
+              class="search-input"
+              type="text"
+              placeholder="Search GitHub username..."
+            />
+          </div>
+
+          <div class="search-items">
+            <div class="error-container">
+              <!-- <p class="error-message"> No results </p> -->
+            </div>
+            <button class="btn search-btn">Search</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- RESULTS SECTION -->
+      <section class="container">
+        <div class="result-container">
+          <!-- <div class="spinner">
+            <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+          </div> -->
+          <div class="image-container">
+            <img
+              class="user-image"
+              src="https://avatars.githubusercontent.com/u/583231?v=4"
+              alt=""
+            />
+          </div>
+
+          <div class="details-container">
+            <div class="user-main-details">
+              <h1 class="user-name">The Octocat</h1>
+              <p class="date">Joined 25 Jan 2011</p>
+            </div>
+
+            <a class="git-link" href="https://github.com/octocat">@octocat</a>
+            <p class="bio">This profile has no bio</p>
+
+            <div class="account-details">
+              <div class="account-detail">
+                <p class="account-title">Repos</p>
+                <p class="number">8</p>
+              </div>
+
+              <div class="account-detail">
+                <p class="account-title">Followers</p>
+                <p class="number">6626</p>
+              </div>
+
+              <div class="account-detail">
+                <p class="account-title">Following</p>
+                <p class="number">9</p>
+              </div>
+            </div>
+
+            <div class="social-icons">
+              <div class="social-icon">
+                <img src="assets/icon-location.svg" alt="" />
+                <p>San Francisco</p>
+              </div>
+
+              <div class="social-icon">
+                <img src="assets/icon-twitter.svg" alt="" />
+                <p>Not available</p>
+              </div>
+
+              <div class="social-icon">
+                <img src="assets/icon-website.svg" alt="" />
+                <p>
+                  <a href="https://github.blog">https://github.blog</a>
+                </p>
+              </div>
+
+              <div class="social-icon">
+                <img src="assets/icon-company.svg" alt="" />
+                <p>@github</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
