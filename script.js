@@ -150,7 +150,7 @@ const getUserDetails = function (gitUser, curMode) {
         <p class=${curMode ? "dark-mode" : ""} >${
     gitUser.blog === ""
       ? "Not available"
-      : `<a href=${gitUser.blog}>${gitUser.blog}</a>`
+      : `<a class= "twitter-link" href=${gitUser.blog}>${gitUser.blog}</a>`
   }</p>
       </div>
 
