@@ -16,27 +16,53 @@ const lightModeBtnContainer = document.querySelector(
 );
 const darkModeBtnContainer = document.querySelector(".dark-mode-btn-container");
 
-let gitUsername;
+let gitUsername, gitUserInfo, curMode;
 
+const getCurMode = function () {
+  curMode = resultsContainer.classList.contains("dark-mode");
+};
+
+// dark mode SECTION
+modeBtn.forEach((el) =>
+  el.addEventListener("click", function (e) {
+    darkModeContainer.forEach((el) => {
+      el.classList.toggle("hidden");
+    });
+    darkModeItems.forEach((el) => {
+      el.classList.toggle("dark-mode");
+    });
+    getCurMode();
+    getUserDetails(gitUserInfo, curMode);
+  })
+);
+
+// search button
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
   gitUsername = gitUserInput.value;
   searchBtnContainer.innerHTML = "";
-  gitData();
+  curMode = resultsContainer.classList.contains("dark-mode");
+  gitData(curMode);
 });
 
-const gitData = async function () {
+const gitData = async function (curMode) {
   renderSpinner();
   try {
+    if (!gitUsername) {
+      console.log("None");
+    }
+    if (!gitUsername) {
+      console.log("NO INPUT");
+      throw new Error("Invalid Input");
+    }
     const fetchPromise = await fetch(
       `https://api.github.com/users/${gitUsername}`
     );
     if (!fetchPromise.ok) {
       throw new Error("No results");
     }
-    const gitUserInfo = await fetchPromise.json(); // it is important to also await the resolved promise
-    console.log(gitUserInfo);
-    getUserDetails(gitUserInfo);
+    gitUserInfo = await fetchPromise.json(); // it is important to also await the resolved promise
+    getUserDetails(gitUserInfo, curMode);
   } catch (err) {
     setTimeout(() => {
       renderError(err.message);
@@ -45,7 +71,7 @@ const gitData = async function () {
   }
 };
 
-const getUserDetails = function (gitUser) {
+const getUserDetails = function (gitUser, curMode) {
   const dateString = Date(`${gitUser.created_at}`);
   const dateArr = dateString.split(" ");
   const day = dateArr[2];
@@ -63,66 +89,78 @@ const getUserDetails = function (gitUser) {
 
   <div class="details-container">
     <div class="user-main-details">
-      <h1 class="user-name">${
-        gitUser.name ? gitUser.name : "Not available"
-      }</h1>
-      <p class="date">Joined ${day} ${month} ${year}</p>
+      <h1 class="user-name ${curMode ? "dark-mode" : ""}">${
+    gitUser.name ? gitUser.name : "Not available"
+  }</h1>
+      <p class="date ${
+        curMode ? "dark-mode" : ""
+      }">Joined ${day} ${month} ${year}</p>
     </div>
 
     <a class="git-link" href="${gitUser.html_url}">@${gitUser.login}</a>
-    <p class="bio">${
-      gitUser.bio === null ? "This profile has no bio" : gitUser.bio
-    }</p>
+    <p class="bio ${curMode ? "dark-mode" : ""}">${
+    gitUser.bio === null ? "This profile has no bio" : gitUser.bio
+  }</p>
 
-    <div class="account-details">
+    <div class="account-details ${curMode ? "dark-mode" : ""}">
       <div class="account-detail">
-        <p class="account-title">Repos</p>
-        <p class="number">${gitUser.public_repos}</p>
+        <p class="account-title ${curMode ? "dark-mode" : ""}">Repos</p>
+        <p class="number ${curMode ? "dark-mode" : ""}">${
+    gitUser.public_repos
+  }</p>
       </div>
 
       <div class="account-detail">
-        <p class="account-title">Followers</p>
-        <p class="number">${gitUser.followers}</p>
+        <p class="account-title ${curMode ? "dark-mode" : ""}">Followers</p>
+        <p class="number ${curMode ? "dark-mode" : ""}">${gitUser.followers}</p>
       </div>
 
       <div class="account-detail">
-        <p class="account-title">Following</p>
-        <p class="number">${gitUser.following}</p>
+        <p class="account-title ${curMode ? "dark-mode" : ""}">Following</p>
+        <p class="number ${curMode ? "dark-mode" : ""}">${gitUser.following}</p>
       </div>
     </div>
 
     
     <div class="social-icons">
       <div class="social-icon">
-        <img src="assets/icon-location.svg" alt="" />
-        <p>${
-          gitUser.location === null
-            ? "Location not specified"
-            : gitUser.location
-        }</p>
+        <img class =  social-icon-img ${
+          curMode ? "dark-mode" : ""
+        } src="assets/icon-location.svg" alt="" />
+        <p class=${curMode ? "dark-mode" : ""}>${
+    gitUser.location === null ? "Location not specified" : gitUser.location
+  }</p>
       </div>
 
       <div class="social-icon">
-        <img src="assets/icon-twitter.svg" alt="" />
-        <p>${
-          gitUser.twitter_username === null
-            ? "Not available"
-            : `<a class="twitter-link" href="https://twitter.com/${gitUser.twitter_username}">${gitUser.twitter_username}</a>`
-        }</p>
+        <img class=  social-icon-img ${
+          curMode ? "dark-mode" : ""
+        } src="assets/icon-twitter.svg" alt="" />
+        <p class=${curMode ? "dark-mode" : ""} >${
+    gitUser.twitter_username === null
+      ? "Not available"
+      : `<a class="twitter-link" href="https://twitter.com/${gitUser.twitter_username}">${gitUser.twitter_username}</a>`
+  }</p>
       </div>
 
       <div class="social-icon">
-        <img src="assets/icon-website.svg" alt="" />
-        <p>${
-          gitUser.blog === ""
-            ? "Not available"
-            : `<a href=${gitUser.blog}>${gitUser.blog}</a>`
-        }</p>
+        <img  class= social-icon-img ${
+          curMode ? "dark-mode" : ""
+        } src="assets/icon-website.svg" alt="" />
+        <p class=${curMode ? "dark-mode" : ""} >${
+    gitUser.blog === ""
+      ? "Not available"
+      : `<a href=${gitUser.blog}>${gitUser.blog}</a>`
+  }</p>
       </div>
 
       <div class="social-icon">
-        <img src="assets/icon-company.svg" alt="" />
-        <p>${gitUser.company === null ? "Not available" : gitUser.company}</p>
+        <img  class= social-icon-img ${
+          curMode ? "dark-mode" : ""
+        } src="assets/icon-company.svg" alt="" />
+        <p class=${curMode ? "dark-mode" : ""} >${
+    gitUser.company === null ? "Not available" : gitUser.company
+  }</p>
       </div>
     </div>
   </div>
@@ -143,17 +181,9 @@ const renderSpinner = function () {
 };
 
 const renderError = function (err) {
-  const html = `<p class="error-message"> No results </p>`;
+  const html = `<p class="error-message">${err}</p>`;
   searchBtnContainer.insertAdjacentHTML("afterbegin", html);
 };
-
-// dark mode SECTION
-modeBtn.forEach((el) =>
-  el.addEventListener("click", function (e) {
-    darkModeContainer.forEach((el) => el.classList.toggle("hidden"));
-    darkModeItems.forEach((el) => el.classList.toggle("dark-mode"));
-  })
-);
 
 // listening to dark mode on the window
 window
