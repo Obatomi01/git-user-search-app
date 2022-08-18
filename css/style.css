@@ -39,7 +39,7 @@ header h1,
 .number,
 .social-icon p,
 .social-icon img {
-  transition: all 3s ease-in;
+  transition: color 3s ease-in;
 }
 
 html {
