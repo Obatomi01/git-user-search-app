@@ -22,9 +22,26 @@ const getCurMode = function () {
   curMode = resultsContainer.classList.contains("dark-mode");
 };
 
+// how to if current theme at the start is dark
+if (
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches
+) {
+  darkModeContainer.forEach((el) => {
+    el.classList.toggle("hidden");
+  });
+  darkModeItems.forEach((el) => {
+    el.classList.toggle("dark-mode");
+  });
+  lightModeBtnContainer.classList.add("hidden");
+  darkModeBtnContainer.classList.remove("hidden");
+  curMode = true;
+}
+
 // dark mode SECTION
 modeBtn.forEach((el) =>
   el.addEventListener("click", function (e) {
+    console.log("button clicked");
     darkModeContainer.forEach((el) => {
       el.classList.toggle("hidden");
     });
@@ -32,6 +49,8 @@ modeBtn.forEach((el) =>
       el.classList.toggle("dark-mode");
     });
     getCurMode();
+    console.log(curMode);
+    console.log(resultsContainer);
     getUserDetails(gitUserInfo, curMode);
   })
 );
@@ -39,9 +58,12 @@ modeBtn.forEach((el) =>
 // search button
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
+  console.log("form submitted");
   gitUsername = gitUserInput.value;
   searchBtnContainer.innerHTML = "";
-  curMode = resultsContainer.classList.contains("dark-mode");
+  getCurMode();
+  console.log(curMode);
+  console.log(resultsContainer);
   gitData(curMode);
 });
 
@@ -186,13 +208,28 @@ const renderError = function (err) {
 };
 
 // listening to dark mode on the window
+
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", function (event) {
     if (event.matches) {
+      // console.log(resultsContainer);
+      // console.log(darkModeItems);
+      // getCurMode();
+      // gitData(curMode);
       lightModeBtnContainer.classList.add("hidden");
       darkModeBtnContainer.classList.remove("hidden");
-      darkModeItems.forEach((el) => el.classList.add("dark-mode"));
+      // darkModeItems.forEach((el) => el.classList.add("dark-mode"));
+      // darkModeContainer.forEach((el) => {
+      //   el.classList.toggle("hidden");
+      // });
+      darkModeItems.forEach((el) => {
+        el.classList.add("dark-mode");
+      });
+      getCurMode();
+      console.log(curMode);
+      console.log(resultsContainer);
+      getUserDetails(gitUserInfo, curMode);
     }
   });
 
@@ -200,8 +237,22 @@ window
   .matchMedia("(prefers-color-scheme: light)")
   .addEventListener("change", function (event) {
     if (event.matches) {
+      // console.log(resultsContainer);
+      // console.log(darkModeItems);
+      // getCurMode();
+      // gitData(curMode);
       lightModeBtnContainer.classList.remove("hidden");
       darkModeBtnContainer.classList.add("hidden");
-      darkModeItems.forEach((el) => el.classList.remove("dark-mode"));
+      // darkModeItems.forEach((el) => el.classList.remove("dark-mode"));
+      // darkModeContainer.forEach((el) => {
+      //   el.classList.toggle("hidden");
+      // });
+      darkModeItems.forEach((el) => {
+        el.classList.remove("dark-mode");
+      });
+      getCurMode();
+      console.log(curMode);
+      console.log(resultsContainer);
+      getUserDetails(gitUserInfo, curMode);
     }
   });
