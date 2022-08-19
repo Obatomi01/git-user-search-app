@@ -115,3 +115,9 @@
     height: 62.8rem;
   }
 }
+
+@media (max-width: 22em) {
+  h1 {
+    font-size: 2rem;
+  }
+}
