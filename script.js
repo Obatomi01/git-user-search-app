@@ -213,16 +213,9 @@ window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", function (event) {
     if (event.matches) {
-      // console.log(resultsContainer);
-      // console.log(darkModeItems);
-      // getCurMode();
-      // gitData(curMode);
       lightModeBtnContainer.classList.add("hidden");
       darkModeBtnContainer.classList.remove("hidden");
-      // darkModeItems.forEach((el) => el.classList.add("dark-mode"));
-      // darkModeContainer.forEach((el) => {
-      //   el.classList.toggle("hidden");
-      // });
+
       darkModeItems.forEach((el) => {
         el.classList.add("dark-mode");
       });
@@ -237,22 +230,14 @@ window
   .matchMedia("(prefers-color-scheme: light)")
   .addEventListener("change", function (event) {
     if (event.matches) {
-      // console.log(resultsContainer);
-      // console.log(darkModeItems);
-      // getCurMode();
-      // gitData(curMode);
       lightModeBtnContainer.classList.remove("hidden");
       darkModeBtnContainer.classList.add("hidden");
-      // darkModeItems.forEach((el) => el.classList.remove("dark-mode"));
-      // darkModeContainer.forEach((el) => {
-      //   el.classList.toggle("hidden");
-      // });
+
       darkModeItems.forEach((el) => {
         el.classList.remove("dark-mode");
       });
       getCurMode();
-      console.log(curMode);
-      console.log(resultsContainer);
+
       getUserDetails(gitUserInfo, curMode);
     }
   });
