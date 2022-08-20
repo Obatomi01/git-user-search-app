@@ -10,7 +10,7 @@
 
 ### Links
 
-- Live Site URL: (github-user-search-tomisin-eniola.netlify.app)
+- Live Site URL: (https://github-user-search-tomisin-eniola.netlify.app/)
 
 ## My process
 
