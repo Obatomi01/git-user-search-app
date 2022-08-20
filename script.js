@@ -49,8 +49,6 @@ modeBtn.forEach((el) =>
       el.classList.toggle("dark-mode");
     });
     getCurMode();
-    console.log(curMode);
-    console.log(resultsContainer);
     getUserDetails(gitUserInfo, curMode);
   })
 );
@@ -58,12 +56,9 @@ modeBtn.forEach((el) =>
 // search button
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  console.log("form submitted");
   gitUsername = gitUserInput.value;
   searchBtnContainer.innerHTML = "";
   getCurMode();
-  console.log(curMode);
-  console.log(resultsContainer);
   gitData(curMode);
 });
 
